@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20230107-1941
+      author: SahilAppayev
+      changes:
+        - createSequence:
+            sequenceName: user_id_seq
+            cacheSize: 2
+            startValue: 1
+            incrementBy: 1
+        - createTable:
+            tableName: user_
+            columns:
+              - column:
+                  name: id
+                  type: INTEGER
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: user_PK
+              - column:
+                  name: username
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: VARCHAR2(60)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: logo
+                  type: BYTEA
+                  constraints:
+                    nullable: false
+              - column:
+                  name: about
+                  type: varchar2(4000)
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
